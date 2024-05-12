@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3ksj10ic7r46"]
+
+[ext_resource type="PackedScene" uid="uid://cwlq2owq8ue0o" path="res://scenes/inventory_slot.tscn" id="1_p03ig"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_s48tr"]
+[ext_resource type="Script" path="res://scripts/slot_grid.gd" id="2_3x2lv"]
+[ext_resource type="Resource" uid="uid://q5f2el4nc7qx" path="res://res/item_1.tres" id="2_ck1ad"]
+[ext_resource type="Resource" uid="uid://dwspy2fpd33ut" path="res://res/item_2.tres" id="3_scwq8"]
+[ext_resource type="Resource" uid="uid://chv2mkcfqdo0m" path="res://res/item_3.tres" id="4_wig4u"]
+[ext_resource type="Resource" uid="uid://c6wp4gios6ook" path="res://res/item_4.tres" id="5_4m4vn"]
+[ext_resource type="Resource" uid="uid://cremuexcovig5" path="res://res/item_5.tres" id="6_3nygp"]
+[ext_resource type="Resource" uid="uid://bqr2ra77di2ai" path="res://res/draggable.tres" id="7_bsse7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jodss"]
+radius = 0.5
+
+[node name="Inventory" type="Control" node_paths=PackedStringArray("mouse_pos", "mouse_area") groups=["inventory"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_s48tr")
+mockup_items = Array[Resource("res://scripts/item.gd")]([ExtResource("2_ck1ad"), ExtResource("3_scwq8"), ExtResource("4_wig4u"), ExtResource("5_4m4vn"), ExtResource("6_3nygp")])
+mouse_pos = NodePath("MousePosition")
+mouse_area = NodePath("MouseArea")
+draggable = ExtResource("7_bsse7")
+
+[node name="SlotGrid" type="GridContainer" parent="." node_paths=PackedStringArray("_inventory")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -79.0
+offset_right = 106.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+script = ExtResource("2_3x2lv")
+_inventory = NodePath("..")
+
+[node name="InventorySlot" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="SlotGrid" instance=ExtResource("1_p03ig")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Add Mockup Item"
+
+[node name="MousePosition" type="Marker2D" parent="."]
+
+[node name="MouseArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
+shape = SubResource("CircleShape2D_jodss")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://2jse66sekpoq"]
+
+[ext_resource type="Script" path="res://test/test_main.gd" id="1_34mbn"]
+[ext_resource type="Script" path="res://test/test.gd" id="1_dfxd3"]
+[ext_resource type="Texture2D" uid="uid://cd5hlfie16ejs" path="res://icon.svg" id="1_k43li"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t6tg"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_he762"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_34mbn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_dfxd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_k43li")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1t6tg")
+
+[node name="MousePos" type="Area2D" parent="."]
+position = Vector2(-171, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePos"]
+shape = SubResource("CircleShape2D_he762")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

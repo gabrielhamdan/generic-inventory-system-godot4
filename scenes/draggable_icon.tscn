@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bje2owya0do61"]
+
+[ext_resource type="Script" path="res://scripts/draggable_icon.gd" id="1_jbb2e"]
+[ext_resource type="Texture2D" uid="uid://ddmxaobbdalsb" path="res://assets/genericItem_white_009.png" id="2_uxtgd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrtg1"]
+radius = 20.0
+
+[node name="DraggableIcon" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_jbb2e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_uxtgd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Area2D" type="Area2D" parent="TextureRect"]
+position = Vector2(45, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/Area2D"]
+shape = SubResource("CircleShape2D_vrtg1")
+
+[node name="DebugIndex" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.882353, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="TextureRect/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="TextureRect/Area2D" to="." method="_on_area_2d_area_exited"]

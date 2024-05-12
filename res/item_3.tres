@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://chv2mkcfqdo0m"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_bqt5b"]
+
+[resource]
+script = ExtResource("1_bqt5b")
+item_name = "medicine"
+item_icon_path = "res://assets/genericItem_white_103.png"
+max_stack_count = 5.0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dwspy2fpd33ut"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_yhvbt"]
+
+[resource]
+script = ExtResource("1_yhvbt")
+item_name = "book"
+item_icon_path = "res://assets/genericItem_white_034.png"
+max_stack_count = 5.0

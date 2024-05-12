@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Draggable" load_steps=2 format=3 uid="uid://bqr2ra77di2ai"]
+
+[ext_resource type="Script" path="res://scripts/draggable.gd" id="1_fafbr"]
+
+[resource]
+script = ExtResource("1_fafbr")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://q5f2el4nc7qx"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_huxyo"]
+
+[resource]
+script = ExtResource("1_huxyo")
+item_name = "pliers"
+item_icon_path = "res://assets/genericItem_white_009.png"
+max_stack_count = 1.0

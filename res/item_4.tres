@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://c6wp4gios6ook"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_op3ot"]
+
+[resource]
+script = ExtResource("1_op3ot")
+item_name = "key"
+item_icon_path = "res://assets/genericItem_white_155.png"
+max_stack_count = 5.0

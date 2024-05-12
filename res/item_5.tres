@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://cremuexcovig5"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_1k4ep"]
+
+[resource]
+script = ExtResource("1_1k4ep")
+item_name = "ticket"
+item_icon_path = "res://assets/genericItem_white_156.png"
+max_stack_count = 1.0
