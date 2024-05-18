@@ -18,7 +18,6 @@ const REMOVE_ITEM_SFX_PATH = "res://assets/sfx/rollover1.ogg"
 
 var slots: Array[InventorySlot]
 var is_mouse_action_pressed: bool = false
-#var slot_index_to_mouse_pos: int
 
 
 func _ready():
@@ -40,6 +39,7 @@ func _input(event: InputEvent):
 
 func add_item(new_item: Item):
 	var first_empty_slot = -1
+	
 	for slot in slots:
 		if first_empty_slot < 0 and slot.current_item == null:
 			first_empty_slot = slot.index
@@ -57,7 +57,6 @@ func remove_item():
 
 func swap_item():
 	var draggable_icon = mouse_pos.get_child(0) as DraggableIcon
-	
 	var new_slot_index = draggable_icon.current_index
 	var previous_slot_index = draggable._slot_index
 	
